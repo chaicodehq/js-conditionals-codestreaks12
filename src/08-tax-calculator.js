@@ -27,4 +27,20 @@
  */
 export function calculateTax(income) {
   // Your code here
+  if (income <= 10000 || income <= 0) {
+    return 0;
+  } else if (income <= 30000) {
+    let taxableIncome = income - 10000;
+    return (taxableIncome * 10) / 100;
+  } else if (income <= 70000) {
+    let firstBracketTax = (20000 * 10) / 100;
+    let secondBracketTax = ((income - 30000) * 20) / 100;
+
+    return firstBracketTax + secondBracketTax;
+  } else {
+    let firstBracketTax = (20000 * 10) / 100;
+    let secondBracketTax = (40000 * 20) / 100;
+    let thirdBracketTax = ((income - 70000) * 30) / 100;
+    return firstBracketTax + secondBracketTax + thirdBracketTax;
+  }
 }
